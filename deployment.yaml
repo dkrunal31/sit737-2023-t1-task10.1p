@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcomemicroservice
+spec:
+  selector:
+    matchLabels:
+      app: welcomemicroservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: welcomemicroservice
+    spec:
+      containers:
+      - name: welcomemicroservice
+        image: gcr.io/sit737-23t1-gujral-6790fc3/welcome_image
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: IfNotPresent
